@@ -6,28 +6,48 @@ export default function crud() {
     return (
         <DefaultLayout>
             <div>
-                <h1>CRUD</h1>
+                <div>
+                    <h1>CRUD</h1>
+                    <h3 className="fs-6">EL subtitulo va aquí</h3>
+                </div>
                 <div className={`${styles['card-fz']} card shadow rounded-fz`}>
                     <form className="card-body ">
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Input 1</label>
-                            <input type="email" className=" appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputPassword1" className="form-label">Input 2</label>
-                            <input type="text" className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputPassword1" />
-                        </div>
+                        <div className="row">
+                            {/* input 1 */}
+                            <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleInputEmail1" className="form-label">Input 1</label>
+                                <input type="email" className=" appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            </div>
+                            {/* input 2 */}
+                            <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleInputPassword1" className="form-label">Input 2</label>
+                                <input type="text" className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputPassword1" />
+                            </div>
+                            {/* Input 3 */}
+                            <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleDataList" className="form-label">Input de autocompletado</label>
+                                <input className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." list="datalistOptions" id="exampleDataList" />
+                                <datalist id="datalistOptions">
+                                    <option value="San Francisco" />
+                                    <option value="New York" />
+                                    <option value="Seattle" />
+                                    <option value="Los Angeles" />
+                                    <option value="Chicago" />
+                                </datalist>
+                            </div>
 
-                        <div className="mb-3">
-                            <label htmlFor="exampleDataList" className="form-label">Input de autocompletado</label>
-                            <input className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." list="datalistOptions" id="exampleDataList"  />
-                            <datalist id="datalistOptions">
-                                <option value="San Francisco" />
-                                <option value="New York" />
-                                <option value="Seattle" />
-                                <option value="Los Angeles" />
-                                <option value="Chicago" />
-                            </datalist>
+                            {/* input 4 */}
+                            <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleInputEmail1" className="form-label">Input 1</label>
+                                <input type="email" className=" appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            </div>
+
+                            {/* input 5 */}
+                            <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleInputEmail1" className="form-label">Input 1</label>
+                                <input type="email" className=" appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            </div>
+
                         </div>
                         <hr />
                         <h3>Tabla</h3>
