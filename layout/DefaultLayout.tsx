@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { IoMdKeypad, IoMdListBox, IoMdPeople, IoMdArrowForward, IoMdList } from 'react-icons/io';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { getSession } from 'next-auth/client';
 
 
 function DefaultLayout({ children }) {
@@ -22,13 +23,30 @@ function DefaultLayout({ children }) {
         setShowSidebar(!showSidebar);
     };
 
+    const [menus, setMenus] = useState([]);
+    
+
+   const obtenerDatos = async () => {
+    const session = await getSession();
+    let rol = session.user.image;
+    const url = process.env.URL+"/menu";
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rol: rol })
+    };
+    fetch(url, requestOptions)
+        .then(response => response.json())
+        .then(data => setMenus(data.menus));
+  }
+
     useEffect(() => {
         window.addEventListener("resize", handleIsMobileChange);
-
         const _isMobile = window.innerWidth < 768;
         setIsMobile(_isMobile);
         setShowSidebar(!_isMobile);
-
+        obtenerDatos();
     }, []);
 
     function handleIsMobileChange() {
@@ -40,6 +58,20 @@ function DefaultLayout({ children }) {
         }
     }
 
+  //  console.log(menus)
+
+    const lateral = menus.map(function(obj){
+        let rObj = {};
+        rObj["is"] = obj.tipo;
+        rObj["is"] = obj.tipo;
+        rObj["is"] = obj.tipo;
+        rObj["icon"] = < obj.icono />
+        rObj["title"] = obj.nombre_menu;
+        rObj["to"] = obj.url;
+        return rObj;
+     });
+//    console.log(lateral);
+
     const itemDashboard = [
         {
             is: "header",
@@ -48,44 +80,7 @@ function DefaultLayout({ children }) {
         },
         {
             is: "menu",
-            menu: [
-                {
-                    is: "item",
-                    icon: <IoMdKeypad />,
-                    title: 'Home',
-                    to: '/',
-                },
-                {
-                    is: "item",
-                    icon: <IoMdKeypad />,
-                    title: 'Dashboard',
-                    to: '/tablero',
-                },
-                {
-                    is: "item",
-                    icon: <IoMdList />,
-                    title: 'Crud',
-                    to: '/crud',
-                },
-                {
-                    is: "item",
-                    icon: <IoMdList />,
-                    title: 'Tablas',
-                    to: '/tablas',
-                },
-                {
-                    is: "item",
-                    icon: <IoMdPeople />,
-                    title: 'User',
-                    to: '/user',
-                },
-                {
-                    is: "item",
-                    icon: <IoMdArrowForward />,
-                    title: 'Forward',
-                    to: '/forward',
-                }
-            ],
+            menu: lateral,
         }
     ]
 
@@ -115,7 +110,6 @@ function DefaultLayout({ children }) {
                 );
             }
         });
-        // console.log(elements);
     }
 
 
@@ -125,13 +119,9 @@ function DefaultLayout({ children }) {
             <div className={`app ${!showSidebar || isMobile ? 'wide-main-content' : ''}`}>
                 {(isMobile && showSidebar) && <div className="background-sidebar z-10" onClick={handleShowSidebarChange}></div>}
                 <div className={`sidebar-container z-10 d-lg-flex ${showSidebar ? '' : 'hide-sidebar'}`}>
-                    <ProSidebar collapsed={collapsed} width={200} onToggle={handleToggleSidebar} toggled={toggled}
-                    >
-
+                    <ProSidebar collapsed={collapsed} width={200} onToggle={handleToggleSidebar} toggled={toggled}>
                         {generateSidebar()}
                     </ProSidebar>
-
-
                 </div>
                 <main className="w-100 container-fluid py-3 px-md-5 px-3">{children}</main>
             </div>
@@ -140,4 +130,3 @@ function DefaultLayout({ children }) {
 }
 
 export default DefaultLayout;
-

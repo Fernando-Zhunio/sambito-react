@@ -410,6 +410,9 @@ import { User } from '../icons/solid';
 import { IoMdContact, IoMdLogOut, IoMdPerson, IoIosNotifications, IoMdMenu } from 'react-icons/io';
 import { useEffect, useState } from 'react';
 
+import { useSession, signOut } from 'next-auth/client';
+import { useRouter } from 'next/router';
+
 interface INotifications {
   title: string;
   description: string;
@@ -467,6 +470,7 @@ export default function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [newMessageCount, setNewMessageCount] = useState(2);
   const [notifications, setNotifications]: any[] = useState(DATA_TEST);
+  const router = useRouter();
 
   function handleIsOpenChange(value) {
     setIsOpen(value);
@@ -481,6 +485,12 @@ export default function Header(props) {
     _notifications.unshift(_notification);
     setNotifications(_notifications);
   }
+
+  async function logoutHandler() {
+    const xx = await signOut();
+    router.push('/');
+  }
+
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container-fluid">
@@ -530,7 +540,8 @@ export default function Header(props) {
               <ul className="dropdown-menu dropdown-menu-end header-dropdown shadow" aria-labelledby="navbarDropdown">
                 <li><a className="dropdown-item  center justify-content-start" href="#"> <IoMdPerson size={20} /> Perfil</a></li>
                 <li><a className="dropdown-item  center justify-content-start" href="#"> <IoIosNotifications size={20} /> Notificaciones</a></li>
-                <li><a className="dropdown-item  center justify-content-start" href="#"> <IoMdLogOut size={20} /> Cerrar sesión</a></li>
+                {/*<li><a className="dropdown-item  center justify-content-start" href="#"> <IoMdLogOut size={20} /> Cerrar sesión</a></li> */}
+                <button className="dropdown-item  center justify-content-start" onClick={logoutHandler} > <IoMdLogOut size={20} /> Cerrar sesión </button>        
               </ul>
             </div>
           </div>
@@ -558,9 +569,7 @@ export default function Header(props) {
               <a className="nav-link">Novedades</a>
             </li>
           </ul>
-
         </div>
-
       </div>
     </nav >
   )

@@ -17,7 +17,8 @@ export function Login() {
 
   const [isLoading, setIsLoading] = useState(true);
   const router2 = useRouter();
-
+ 
+  ///Para bloquiar el login en caso de que este logiado///
   useEffect(() => {
     getSession().then((session) => {
       if (session) {
@@ -28,10 +29,8 @@ export function Login() {
     });
   }, [router2]);
 
-   if (isLoading) {
-    return <div className="vh-100 w-100 display-6 center">
-      <p className="parpadeo">Cargando espere...</p>
-    </div>;
+  if (isLoading) {
+    return <p>Loading...</p>;
   }
   /////////////////////////////////////
 
@@ -52,6 +51,7 @@ export function Login() {
 
       console.log(result);
       if (!result.error) {
+        // set some auth state
         router.replace('/tablero');
       }
     } 
