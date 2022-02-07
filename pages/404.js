@@ -14,10 +14,10 @@ const NotFound = () => (
       >
         Error 404
       </h1>
-      <h6 className="mt-0 mb-2">Sorry! 404 </h6>      
+      {/* <h6 className="mt-0 mb-2">Sorry! 404 </h6>       */}
       <Link href="/" as={``}>
         <a className="btn btn-primary btn-custom btn-lg shadow-md">
-        Regresar a página Principal
+        Regresar a la página principal
           <Ripple />
         </a>
       </Link>

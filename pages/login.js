@@ -18,21 +18,21 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(true);
   const router2 = useRouter();
 
-  // useEffect(() => {
-  //   getSession().then((session) => {
-  //     if (session) {
-  //       router2.replace('/tablero');
-  //     } else {
-  //       setIsLoading(false);
-  //     }
-  //   });
-  // }, [router2]);
+  useEffect(() => {
+    getSession().then((session) => {
+      if (session) {
+        router2.replace('/tablero');
+      } else {
+        setIsLoading(false);
+      }
+    });
+  }, [router2]);
 
-  //  if (isLoading) {
-  //   return <div className="vh-100 w-100 display-6 center">
-  //     <p className="parpadeo">Loading...</p>
-  //   </div>;
-  // }
+   if (isLoading) {
+    return <div className="vh-100 w-100 display-6 center">
+      <p className="parpadeo">Cargando espere...</p>
+    </div>;
+  }
   /////////////////////////////////////
 
   
@@ -116,10 +116,10 @@ export function Login() {
                   </button>
                 </div>
               </form>
-              <div className="text-center mb-5 text-indigo-500">
+              {/* <div className="text-center mb-5 text-indigo-500">
               <Image src="/SAMBITO.png" alt="Vercel Logo" width={150} height={46} />
               <Image src="/RISK.png" alt="Vercel Logo" width={78} height={35} />
-              </div>
+              </div> */}
             </div>
             <div>      
             </div>
