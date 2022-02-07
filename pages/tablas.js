@@ -1,7 +1,7 @@
 import Table from "../components/Table";
 import DefaultLayout from "../layout/DefaultLayout";
-import { IoMdCreate, IoMdTrash } from "react-icons/io";
-
+import { IoMdCreate, IoMdTrash, IoMdSend } from "react-icons/io";
+import styles from "../styles/table.module.css";
 // const TablePage = () => <Table />;
 
 // TablePage.getInitialProps = async () => ({
@@ -14,6 +14,17 @@ export default function Tablas() {
   return (
     <div>
       <DefaultLayout>
+        {/* Buscador */}
+        <div>
+          <h2>Titulo</h2>
+          <p>Subtitulo va aqui</p>
+        </div>
+        <div>
+          <div className="position-relative sticky-top center mb-3">
+            <input placeholder="Buscador" type="search" className="w-100 ps-3 p-2 shadow  rounded-fz" />
+            <button className={`${styles['btn-search']} b-primary rounded-circle center `}><IoMdSend  size={25} /></button>
+          </div>
+        </div>
         {/* <Table /> */}
 
         <div className="card-body mb-3 rounded-fz shadow table-responsive bg-white">
