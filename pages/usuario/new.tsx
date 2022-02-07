@@ -3,12 +3,40 @@ import DefaultLayout from "../../layout/DefaultLayout";
 import styles from "../../styles/crud.module.css";
 import {IoMdCreate, IoMdTrash } from "react-icons/io";
 
+import { useState } from "react/cjs/react.development"
+import TableRows from "../../components/Usuario/TableRows"
+
 const  url=process.env.URL;
 
 function NewUsuario(props) {
   console.log(props)
   console.log(props.session.user.image);
 
+  const [rowsData, setRowsData] = useState([]);
+ 
+  const addTableRows = ()=>{
+
+      const rowsInput={
+          fullName:'',
+          emailAddress:'',
+          salary:''  
+      } 
+      setRowsData([...rowsData, rowsInput])
+    
+  }
+ const deleteTableRows = (index)=>{
+      const rows = [...rowsData];
+      rows.splice(index, 1);
+      setRowsData(rows);
+ }
+
+ const handleChange = (index, evnt)=>{
+  const { name, value } = evnt.target;
+  const rowsInput = [...rowsData];
+  rowsInput[index][name] = value;
+  setRowsData(rowsInput);
+}
+  
   return (
     <DefaultLayout>
       <div>
@@ -47,6 +75,7 @@ function NewUsuario(props) {
                                 <option value="Plaslit" />
                             </datalist>
                         </div>
+                        <button className="btn btn-outline-success" onClick={addTableRows} >+</button>
                         <hr />
                         <h3>Clientes</h3>
                         <div className="card-body mb-3 rounded-fz shadow">
@@ -58,15 +87,7 @@ function NewUsuario(props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>ENLIT</td>
-                                        <td className="d-flex">
-                                        <button type="button" className="btn btn-sm text-danger ml-1">
-                                        <IoMdTrash size={20}/>
-                                        </button> 
-                                        </td>
-                                    </tr>                                    
+                                    <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange} />                                    
                                 </tbody>
                             </table>
                         </div>

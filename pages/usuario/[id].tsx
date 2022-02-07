@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
+
 import { getSession } from 'next-auth/client';
 import DefaultLayout from "../../layout/DefaultLayout";
 import styles from "../../styles/crud.module.css";
@@ -11,6 +12,9 @@ const  url=process.env.URL;
 
 function UsuarioPage({ usuario}) {
   const router = useRouter();
+
+  const [rowsData, setRowsData] = useState([]);
+
 
   const handleDelete = async (id) => {
     try {
