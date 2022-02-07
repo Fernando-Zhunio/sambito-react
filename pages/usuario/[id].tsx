@@ -13,7 +13,7 @@ const  url=process.env.URL;
 function UsuarioPage({ usuario}) {
   const router = useRouter();
 
-  const [rowsData, setRowsData] = useState([]);
+
 
 
   const handleDelete = async (id) => {
