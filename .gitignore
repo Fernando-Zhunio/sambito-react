@@ -22,9 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .next
-<<<<<<< HEAD
-=======
-.next/*
->>>>>>> 2be91d2e84fee0dd0f68ca05d5923b2a64388d46
 
 .vercel
