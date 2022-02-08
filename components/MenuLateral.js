@@ -13,7 +13,7 @@ function MenuLateral(props) {
     //const router = useRouter();
  
    
-    axios.post('http://localhost/sistemaauditoria/saauditoriaI/public/menu', {
+    axios.post('http://localhost/saauditoriaI/public/menu', {
 
       rol: parametro,
 

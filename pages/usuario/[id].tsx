@@ -10,11 +10,9 @@ import {IoMdCreate, IoMdTrash } from "react-icons/io";
 
 const  url=process.env.URL;
 
-function UsuarioPage({ usuario}) {
+function UsuarioPage({ usuario,props}) {
+  
   const router = useRouter();
-
-
-
 
   const handleDelete = async (id) => {
     try {
@@ -97,15 +95,28 @@ function UsuarioPage({ usuario}) {
   );
 }
 
-export const getServerSideProps = async ({ query }) => {
+export async function getServerSideProps(context)  {
+
+  const session = await getSession({ req: context.req });
+
+  console.log(session);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
   const { data: usuario } = await axios.get(
-    url+"User/get/" + query.id
+    url+"User/get/" + context.query.id
   );
 
   return {
     props: {
       usuario,
+      session
     },
   };
 };
