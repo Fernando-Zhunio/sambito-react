@@ -15,6 +15,6 @@ module.exports = {
 module.exports = {
   reactStrictMode: true,
   env: {
-    URL: 'http://localhost/sistemaauditoria/saauditoriaI/public/',
+    URL: 'http://localhost/saauditoriaI/public/',
   }
 }

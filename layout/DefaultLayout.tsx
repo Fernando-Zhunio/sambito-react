@@ -65,7 +65,7 @@ function DefaultLayout({ children }) {
         rObj["is"] = obj.tipo;
         rObj["is"] = obj.tipo;
         rObj["is"] = obj.tipo;
-        rObj["icon"] = < obj.icono />
+        rObj["icon"] = obj.icono;
         rObj["title"] = obj.nombre_menu;
         rObj["to"] = obj.url;
         return rObj;
@@ -100,7 +100,7 @@ function DefaultLayout({ children }) {
                             menu.map((item, index1) => {
                                 const menu = item;
                                 if (menu.is == "item") {
-                                    return (<MenuItem key={index + '-' + index1} className={router.pathname == item.to ? "selected" : ""} icon={menu.icon}>
+                                    return (<MenuItem key={index + '-' + index1} className={router.pathname == item.to ? "selected" : ""} icon={<div dangerouslySetInnerHTML={{__html: menu.icon}}></div>}>
                                         <Link href={menu.to}>{menu.title}</Link>
                                     </MenuItem>)
                                 }
