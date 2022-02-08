@@ -14,8 +14,6 @@ function UsuarioPage({ usuario}) {
   const router = useRouter();
 
 
-
-
   const handleDelete = async (id) => {
     try {
       await axios.delete(url+"user/delete/" + id);
