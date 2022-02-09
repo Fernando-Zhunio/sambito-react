@@ -61,13 +61,17 @@ function NewClient(props) {
                       <label htmlFor="exampleInputEmail1" className="form-label">Nombre Fantasía Comercial</label>
                       <input type="text" className="form-control" id="nombreFantasiaComercial" name='nombreFantasiaComercial' aria-describedby="emailHelp" />
                     </div>
-                    <div className="mb-3  col-md-6 col-12">
-                            <label htmlFor="exampleDataList" className="form-label">Pais</label>
-                            <input className="form-control" list="datalistOptions" id="exampleDataList" placeholder="Escriba algo" />
-                            <datalist id="datalistOptions">
-                                <option value="Ecuador" />
-                            </datalist>
-                    </div>
+                    <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleDataList" className="form-label">Pais</label>
+                                <input className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." list="datalistOptions" id="pais" name="pais" />
+                                <datalist id="datalistOptions">
+                                    <option value="Ecuador" />
+                                    <option value="New York" />
+                                    <option value="Seattle" />
+                                    <option value="Los Angeles" />
+                                    <option value="Chicago" />
+                                </datalist>
+                            </div>
                     <div className="mb-3  col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">Provincia</label>
                       <input type="text" className="form-control" id="provincia" name="provincia"/>

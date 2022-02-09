@@ -1,6 +1,7 @@
 import DefaultLayout from "../layout/DefaultLayout";
 import styles from "../styles/crud.module.css";
 import { IoMdCreate, IoMdTrash } from "react-icons/io";
+
 export default function crud() {
 
     return (
