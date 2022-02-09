@@ -22,7 +22,6 @@ function NewUsuario(props) {
   const [rowsData, setRowsData] = useState([]);
 
   const addTableRows = ()=>{
-    console.log(tech_skills);
       const rowsInput={
           fullName:'',
           emailAddress:'',
@@ -43,7 +42,6 @@ function NewUsuario(props) {
   rowsInput[index][name] = value;
   setRowsData(rowsInput);
 }
-// onChange={e => setTech_usuario(e.target.value)} value={tech_usuario}
   return (
     <DefaultLayout>
       <div>
