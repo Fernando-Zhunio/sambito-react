@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/dashboard.js", "pages/tablero.jsx", "layout/DefaultLayout.tsx"  ],
+, "pages/dashboard.js", "pages/tablero.jsx", "layout/DefaultLayout.tsx", "pages/client/new.js", "components/Client/Table.js"  ],
   "exclude": [
     "node_modules"
   ]
