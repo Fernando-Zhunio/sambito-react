@@ -1,9 +1,9 @@
 import { getSession } from 'next-auth/client';
 import DefaultLayout from "../../layout/DefaultLayout";
 import styles from "../../styles/crud.module.css";
-import {IoMdCreate, IoMdTrash } from "react-icons/io";
 
-//import { useState } from "react/cjs/react.development"
+import TableRows from "../../components/Client/TableRows"
+
 import { useRouter } from "next/router";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -21,13 +21,36 @@ function NewClient(props) {
     razonSocial: "",
     nombreComercial: "",
     user: '',
-    password:''
+    vigencia:'',
+    correo:''
   });
 
-  
+
+const [rowsData, setRowsData] = useState([]);
+
+
+
+const addTableRows = ()=>{
+    const rowsInput={
+        idCliente:'',
+    } 
+    setRowsData([...rowsData, rowsInput])  
+}
+const deleteTableRows = (index)=>{
+    const rows = [...rowsData];
+    rows.splice(index, 1);
+    setRowsData(rows);
+}
 
 const handleChangeP = ({ target: { name, value } }) =>
 setclient({ ...client, [name]: value });
+
+const handleChange = (index, evnt)=>{
+  const { name, value } = evnt.target;
+  const rowsInput = [...rowsData];
+  rowsInput[index][name] = value;
+  setRowsData(rowsInput);
+}
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -45,15 +68,15 @@ const handleSubmit = async (e) => {
   return (
     <DefaultLayout>
       <div>
-                <h1>MATRICULACION CLIENTE</h1>
+                <h1>MATRICULACIÓN CLIENTE</h1>
                 <h3 className="fs-6">Información de Cliente</h3>
                 <div className={`${styles['card-fz']} card shadow rounded-fz`}>
                     <form className="card-body " 
                     onSubmit={handleSubmit}>
                     <div className="row">
-                    <div className="mb-3">
+                    <div className="mb-3  col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">RUC</label>
-                      <input required onChange={handleChangeP} value={client.ruc} type="number" className="form-control" id="ruc" name="ruc"  />
+                      <input required onChange={handleChangeP} value={client.ruc} type="number" className="form-control" id="ruc" name="ruc" min="13" max="13" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">Razón Social</label>
@@ -63,52 +86,33 @@ const handleSubmit = async (e) => {
                       <label htmlFor="exampleInputEmail1" className="form-label">Nombre Comercial</label>
                       <input required onChange={handleChangeP} type="text" value={client.nombreComercial} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
-                      <hr />
-                        <h3>USUARIO</h3>
-
                       <div className="mb-3  col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Usuario</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Usuario Cliente</label>
                         <input required onChange={handleChangeP} type="text" value={client.user} className="form-control" id="user" name="user"/>
                       </div>
 
                       <div className="mb-3  col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Clave</label>
-                        <input type="password" onChange={handleChangeP} value={client.password } className="form-control" id="password" name="password"/>
-                      </div> 
-                      <hr />
-                        <h3>SEGMENTOS</h3>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Correo</label>
+                        <input type="text" onChange={handleChangeP} value={client.correo } className="form-control" id="correo" name="correo"/>
+                      </div>
+
                       <div className="mb-3  col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Nombre</label>
-                        <input type="text" className="form-control" id="nombre" name="nombre"/>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Vigencia de la calificación (años)</label>
+                        <input type="number" onChange={handleChangeP} value={client.vigencia } className="form-control" id="vigencia" name="vigencia"/>
                       </div>
 
-                      <div className="mb-3  col-md-3 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Costo</label>
-                        <input type="number" className="form-control" id="costo" name="costo"/>
+                      <div className="mb-3  col-md-6 col-12">
+                        <label htmlFor="exampleInputPassword1" className="form-label">Términos y condiciones</label>
+                        <textarea className="form-control" rows="5" cols="70"> </textarea> 
                       </div>
 
-                      <div className="mb-3  col-md-3 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Peso</label>
-                        <input type="number" className="form-control" id="peso" name="peso"/>
+
+                      <div className="mb-3  col-md-6 col-12">
+                      <button type="button"  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() =>addTableRows()} >+</button>
                       </div>
-                      
+                      <hr />
                         <h3 className="fs-6">Lista de Segmentos</h3>
-                        <div className="card-body mb-3 rounded-fz shadow">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Segmentos</th>
-                                        <th scope="col">Costo</th>
-                                        <th scope="col">Peso</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-
+                          <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange}  />                       
                       </div>
                         
                         <button 

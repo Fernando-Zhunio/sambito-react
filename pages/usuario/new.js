@@ -69,7 +69,7 @@ function NewUsuario(props) {
 
                         <button type="button"  className="btn btn-outline-success" onClick={() =>addTableRows()} >+</button>
                         <hr />
-                        <h3>Clientes</h3>
+                        <h3 className="fs-6">Clientes</h3>
                         <div className="card-body mb-3 rounded-fz shadow">
                             <table className="table">
                                 <thead>

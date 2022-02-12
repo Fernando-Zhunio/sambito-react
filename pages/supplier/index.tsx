@@ -1,4 +1,4 @@
-import Table from "../../components/Client/Table";
+import Table from "../../components/Supplier/Table";
 import DefaultLayout from '../../layout/DefaultLayout';
 import { getSession } from 'next-auth/client';
 import { IoMdCreate, IoMdTrash, IoMdSend } from "react-icons/io";
@@ -11,10 +11,10 @@ export default function Tablas(){
     <div>
 <DefaultLayout>
         <div>
-          <h2>Cliente</h2>
+          <h2>Proveedor</h2>
             <p>
-              <a href="/client/new">
-              Matriculacion Clientes
+              <a href="/supplier/new">
+              R1 Registro Proveedor
               </a>
             </p>
         </div> 
