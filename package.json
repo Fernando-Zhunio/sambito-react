@@ -12,6 +12,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@headlessui/react": "^1.4.3",
+    "@pathofdev/react-tag-input": "^1.0.7",
     "axios": "^0.25.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",
