@@ -70,7 +70,7 @@ const handleSubmit = async (e) => {
     <DefaultLayout>
       <div>
                 <h1>MATRICULACIÓN CLIENTE</h1>
-                <h3 className="fs-6">Información de Cliente</h3>
+                <h3 className="fs-6 text-muted">Información de Cliente</h3>
                 <div className={`${styles['card-fz']} card shadow rounded-fz`}>
                     <form className="card-body " 
                     onSubmit={handleSubmit}>
@@ -102,18 +102,20 @@ const handleSubmit = async (e) => {
                         <input type="number" onChange={handleChangeP} value={client.vigencia } className="form-control" id="vigencia" name="vigencia"/>
                       </div>
 
-                      <div className="mb-3  col-md-6 col-12">
+                      <div className="mb-3 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Términos y condiciones</label>
                         <textarea className="form-control" rows="5" cols="70"> </textarea> 
                       </div>
 
-
-                      <div className="mb-3  col-md-6 col-12">
+                      {/* <div className="mb-3  col-md-6 col-12">
                       <button type="button"  className="btn btn-sm btn-primary btn-custom" onClick={() =>addTableRows()} ><IoIosAddCircleOutline size={25} /></button>
-                      </div>
+                      </div> */}
                       <hr />
-                        <h3 className="fs-6">Lista de Segmentos</h3>
+                        <h3 >Lista de Segmentos</h3>
                           <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange}  />                       
+                      </div>
+                      <div className="mb-3">
+                      <button type="button"  className="btn btn-sm btn-primary btn-custom" onClick={() =>addTableRows()} >Agregar nuevo segmento  <IoIosAddCircleOutline className='ml-1' size={25} /></button>
                       </div>
                         
                         <button 

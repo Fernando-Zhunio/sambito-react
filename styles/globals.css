@@ -297,16 +297,21 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
   white-space: normal !important;; 
 }
   
-.input-default {
-  width: 100%;
-  border-radius: 0.5rem;
+.input-default, .form-control {
+  width: 100% !important;
+  border-radius: 0.5rem !important;
   padding: 11px !important;
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  border: 1px solid var(--tw-drop-shadow, #0000);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+  border: 1px solid var(--tw-drop-shadow, #0000) !important;
 }
 
-
-
+.react-tag-input {
+  width: 100% !important;
+  border-radius: 0.5rem !important;
+  padding: 8px  !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+  border: 1px solid var(--tw-drop-shadow, #0000) !important;
+}
 
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item{
