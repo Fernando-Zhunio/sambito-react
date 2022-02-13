@@ -324,3 +324,9 @@ a {
   background: #7cba6c !important;
   color: #f9fafb !important;
 }
+
+.rdrCalendarWrapper{
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}

@@ -2,27 +2,49 @@ import DefaultLayout from "../layout/DefaultLayout";
 import styles from "../styles/crud.module.css";
 import { IoMdCreate, IoMdTrash } from "react-icons/io";
 import { useEffect, useState } from "react";
+
+// import htmlToDraft from 'html-to-draftjs';
+
+
+
+
+// #region tabs -----------------------
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+// #endregion tabs -------------------
+
+
+
+
+//#endregion texto enriquecido ---------------------
 import dynamic from "next/dynamic";
 import { EditorState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
-
-// #region tabs
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-// #endregion tabs
-
 const Editor = dynamic(
     () => {
         return import("react-draft-wysiwyg").then(mod => mod.Editor);
     },
     { ssr: false }
 ) as any;
-
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+//#endregion texto enriquecido ---------------------
+
+
+
+
+//#region selector de fechas -----------------------
+import { DateRange, Calendar } from 'react-date-range';
+import { es } from 'react-date-range/dist/locale';
+
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+//#endregion selector de fechas -------------------------------
+
+
 
 export default function crud() {
 
+    //region texto enriquecido
     const [editorState, setEditorState] = useState(() => { return EditorState.createEmpty() });
 
     const onEditorStateChange = (editorState) => {
@@ -32,7 +54,20 @@ export default function crud() {
     const convertContentToHTML = () => {
         console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
     }
+    //#endregion texto enriquecido
 
+
+    //#region selector de fechas
+    const [date, setDate] = useState(null);
+
+    const [state, setState] = useState([
+        {
+            startDate: new Date(),
+            endDate: null,
+            key: 'selection'
+        }
+    ]);
+    //#endregion selector de fechas
 
 
     return (
@@ -153,7 +188,10 @@ export default function crud() {
                         <button type="button" className="btn btn-danger ms-2">Cancelar</button>
                     </form>
                 </div>
+            </div>
 
+            {/* sección editor enriquecido */}
+            <div className="rounded-fz card-body shadow-sm bg-white my-3">
                 <h2>Texto enriquecido</h2>
                 <div id="editor-1">
                     <Editor
@@ -161,15 +199,40 @@ export default function crud() {
                         defaultEditorState={editorState}
                         editorState={editorState}
                         onEditorStateChange={onEditorStateChange}
-                    //   onChange={handleEditorChange}
-                    //   onEditorStateChange={onEditorStateChange}
                     />
                     <button onClick={convertContentToHTML} className="btn btn-primary my-2">Print data log</button>
                 </div>
             </div>
 
 
-{/* sección tag */}
+
+            <div className="rounded-fz card-body shadow-sm bg-white my-3">
+                <h2>Selector de fechas</h2>
+                <div className="row">
+                    <div className="col-md-6 col-12">
+                        <DateRange
+                            editableDateInputs={true}
+                            onChange={item => setState([item.selection])}
+                            moveRangeOnFirstSelection={false}
+                            ranges={state}
+                            locale={es}
+                        />
+                    </div>
+
+                    <div className="col-md-6 col-12">
+                        <Calendar onChange={item => setDate(item)}
+                            locale={es} date={date} />
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            {/* sección tag */}
             <div className="rounded-fz card-body shadow-sm bg-white">
                 <h2>Tabs</h2>
                 <div>
@@ -211,7 +274,7 @@ export default function crud() {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                        <div className="mt-4">
+                            <div className="mt-4">
                                 <form className="row">
                                     <div className="col-md-6 col-12">
                                         <label htmlFor="exampleInputEmail1" className="form-label">Nombre de la persona de facturación</label>
@@ -242,7 +305,7 @@ export default function crud() {
                         </TabPanel>
 
                         <TabPanel>
-                        <div className="mt-4">
+                            <div className="mt-4">
                                 <form className="row">
                                     <div className="col-md-6 col-12">
                                         <label htmlFor="exampleInputEmail1" className="form-label">Nombre de la persona de auditoria</label>
@@ -275,7 +338,6 @@ export default function crud() {
 
                 </div>
             </div>
-
         </DefaultLayout>
     )
 }
