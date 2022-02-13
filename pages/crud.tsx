@@ -1,31 +1,40 @@
 import DefaultLayout from "../layout/DefaultLayout";
 import styles from "../styles/crud.module.css";
 import { IoMdCreate, IoMdTrash } from "react-icons/io";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { EditorState, convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 
-// import {Editor}  from "react-draft-wysiwyg";
-const  Editor  = dynamic(
+// #region tabs
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+// #endregion tabs
+
+const Editor = dynamic(
     () => {
         return import("react-draft-wysiwyg").then(mod => mod.Editor);
     },
     { ssr: false }
 ) as any;
+
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 export default function crud() {
-    // let editorRef = useRef();
-    // const { Editor } = editorRef.current || {}; // if it don't find any document then it will be an empty object 
 
-    // let [loaded, setLoaded] = useState(false);
-    // useEffect(() => {
-    //     editorRef.current = {
-    //       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
-    //       ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-    //     };
+    const [editorState, setEditorState] = useState(() => { return EditorState.createEmpty() });
 
-    //     setLoaded(true);
-    //   }, []);
+    const onEditorStateChange = (editorState) => {
+        setEditorState(editorState)
+    }
+
+    const convertContentToHTML = () => {
+        console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    }
+
+
+
     return (
         <DefaultLayout>
             <div>
@@ -146,10 +155,124 @@ export default function crud() {
                 </div>
 
                 <h2>Texto enriquecido</h2>
-                <div>
-                    <Editor 
-                      editorClassName="editor-class"
+                <div id="editor-1">
+                    <Editor
+                        editorClassName="editor-class"
+                        defaultEditorState={editorState}
+                        editorState={editorState}
+                        onEditorStateChange={onEditorStateChange}
+                    //   onChange={handleEditorChange}
+                    //   onEditorStateChange={onEditorStateChange}
                     />
+                    <button onClick={convertContentToHTML} className="btn btn-primary my-2">Print data log</button>
+                </div>
+            </div>
+
+
+{/* sección tag */}
+            <div className="rounded-fz card-body shadow-sm bg-white">
+                <h2>Tabs</h2>
+                <div>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Datos de persona de contacto</Tab>
+                            <Tab>Datos de persona de facturación</Tab>
+                            <Tab>Datos de persona de auditoria</Tab>
+                        </TabList>
+
+                        <TabPanel>
+                            <div className="mt-4">
+                                <form className="row">
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Nombre de la persona de contacto</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Cargo de la persona de contacto</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Teléfono de la persona de contacto</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Email de la persona de contacto</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-12 my-2">
+                                        <button className="btn btn-custom btn-primary">Guardar</button>
+                                        <button className="btn btn-custom btn-secondary ml-1">Finalizar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                        <div className="mt-4">
+                                <form className="row">
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Nombre de la persona de facturación</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Cargo de la persona de facturación</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Teléfono de la persona de facturación</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Email de la persona de facturación</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-12 my-2">
+                                        <button className="btn btn-custom btn-primary">Guardar</button>
+                                        <button className="btn btn-custom btn-secondary ml-1">Finalizar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </TabPanel>
+
+                        <TabPanel>
+                        <div className="mt-4">
+                                <form className="row">
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Nombre de la persona de auditoria</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Cargo de la persona de auditoria</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Teléfono de la persona de auditoria</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-md-6 col-12">
+                                        <label htmlFor="exampleInputEmail1" className="form-label">Email de la persona de auditoria</label>
+                                        <input type="email" className="input-default" />
+                                    </div>
+
+                                    <div className="col-12 my-2">
+                                        <button className="btn btn-custom btn-primary">Guardar</button>
+                                        <button className="btn btn-custom btn-secondary ml-1">Finalizar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </TabPanel>
+                    </Tabs>
+
                 </div>
             </div>
 

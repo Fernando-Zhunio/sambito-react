@@ -319,3 +319,8 @@ a {
   min-height: 200px;
   padding: 0 10px;
 }
+
+.react-tabs__tab--selected {
+  background: #7cba6c !important;
+  color: #f9fafb !important;
+}

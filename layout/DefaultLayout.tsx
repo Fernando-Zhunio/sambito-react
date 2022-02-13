@@ -50,27 +50,27 @@ function DefaultLayout({ children }) {
     const [menus, setMenus] = useState([]);
 
 
-    const obtenerDatos = async () => {
-        const session = await getSession();
-        let rol = session.user.image;
-        const url = process.env.URL + "/menu";
+    // const obtenerDatos = async () => {
+    //     const session = await getSession();
+    //     let rol = session.user.image;
+    //     const url = process.env.URL + "/menu";
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ rol: rol })
-        };
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(data => setMenus(data.menus));
-    }
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ rol: rol })
+    //     };
+    //     fetch(url, requestOptions)
+    //         .then(response => response.json())
+    //         .then(data => setMenus(data.menus));
+    // }
 
     useEffect(() => {
         window.addEventListener("resize", handleIsMobileChange);
         const _isMobile = window.innerWidth < 768;
         setIsMobile(_isMobile);
         setShowSidebar(!_isMobile);
-        obtenerDatos();
+        // obtenerDatos();
     }, []);
 
     function handleIsMobileChange() {
