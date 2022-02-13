@@ -232,6 +232,7 @@ a {
 
 .btn-custom.btn-primary {
   /* background-color: #a3cd45; */
+  border: 0 !important;
   background: linear-gradient(83deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.9867297260701156) 91%);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   border-radius: 20px;
@@ -246,6 +247,7 @@ a {
 .btn-custom.btn-secondary {
   /* background-color: #60ab84; */
   /* border-color: #60ab84; */
+  border: 0 !important;
   background: rgb(163,205,69);
 background: linear-gradient(83deg, rgba(163,205,69,1) 13%, rgba(91,126,148,0.9867297260701156) 91%);
   color: #fff;
@@ -258,6 +260,7 @@ background: linear-gradient(83deg, rgba(163,205,69,1) 13%, rgba(91,126,148,0.986
   color: #fff;
 }
 .btn-custom.btn-info {
+  border: 0 !important;
   background-color: #5b7e94;
   border-color: rgb(163,205,69);
   color: #fff;
