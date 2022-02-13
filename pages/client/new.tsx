@@ -9,6 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
+import { IoIosAddCircleOutline } from 'react-icons/io';
 
 const  url=process.env.URL;
 
@@ -107,7 +108,7 @@ const handleSubmit = async (e) => {
                       </div>
 
                       <div className="mb-3  col-md-6 col-12">
-                      <button type="button"  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() =>addTableRows()} >+</button>
+                      <button type="button"  className="btn btn-sm btn-primary btn-custom" onClick={() =>addTableRows()} ><IoIosAddCircleOutline size={25} /></button>
                       </div>
                       <hr />
                         <h3 className="fs-6">Lista de Segmentos</h3>
@@ -115,7 +116,7 @@ const handleSubmit = async (e) => {
                       </div>
                         
                         <button 
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        className="mt-2 btn btn-custom btn-secondary">
                           Guardar
                         </button>
                     </form>

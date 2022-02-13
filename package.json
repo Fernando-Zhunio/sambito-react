@@ -29,6 +29,7 @@
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
     "react-pro-sidebar": "^0.7.1",
+    "react-search-autocomplete": "^5.5.1",
     "react-select-search-nextjs": "^3.0.9",
     "react-select2-wrapper": "^1.0.4-beta6",
     "react-table": "^7.7.0",
