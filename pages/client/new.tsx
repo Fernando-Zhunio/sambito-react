@@ -77,7 +77,7 @@ const handleSubmit = async (e) => {
                     <div className="row">
                     <div className="mb-3  col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">RUC</label>
-                      <input required onChange={handleChangeP} value={client.ruc} type="number" className="form-control" id="ruc" name="ruc" min="13" max="13" />
+                      <input required onChange={handleChangeP} value={client.ruc} type="number" className="form-control" id="ruc" name="ruc" minlength="13" maxlength="13" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">Razón Social</label>
@@ -88,11 +88,6 @@ const handleSubmit = async (e) => {
                       <input required onChange={handleChangeP} type="text" value={client.nombreComercial} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                       <div className="mb-3  col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Usuario Cliente</label>
-                        <input required onChange={handleChangeP} type="text" value={client.user} className="form-control" id="user" name="user"/>
-                      </div>
-
-                      <div className="mb-3  col-md-6 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Correo</label>
                         <input type="text" onChange={handleChangeP} value={client.correo } className="form-control" id="correo" name="correo"/>
                       </div>
@@ -102,7 +97,12 @@ const handleSubmit = async (e) => {
                         <input type="number" onChange={handleChangeP} value={client.vigencia } className="form-control" id="vigencia" name="vigencia"/>
                       </div>
 
-                      <div className="mb-3 col-12">
+                      <div className="mb-3  col-md-6 col-12">
+                        <label htmlFor="exampleInputPassword1" className="form-label">Consultor</label>
+                        <input type="number" onChange={handleChangeP} value={client.vigencia } className="form-control" id="vigencia" name="vigencia"/>
+                      </div>
+
+                      <div className="mb-3  col-md-6 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Términos y condiciones</label>
                         <textarea className="form-control" rows="5" cols="70"> </textarea> 
                       </div>

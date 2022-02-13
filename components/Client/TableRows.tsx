@@ -2,7 +2,7 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
 import { useState } from "react";
-import { classNames } from 'classnames';
+//import { classNames } from 'classnames';
 function TableRows({ rowsData, deleteTableRows, handleChange }) {
     const [tags, setTags] = useState([])
 
@@ -32,8 +32,7 @@ function TableRows({ rowsData, deleteTableRows, handleChange }) {
                                 readOnly={false}
                                 removeOnBackspace={true}
                                 onChange={(newTags) => setTags(newTags)}
-                                // validator={(value) => {
-                                //     // Don't actually validate e-mails this way
+                                // validator={(value) => {                             //     // Don't actually validate e-mails this way
                                 //     const isEmail = value.indexOf("@") !== -1;
                                 //     if (!isEmail) {
                                 //         alert("Please enter an e-mail address");

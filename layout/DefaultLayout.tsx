@@ -100,7 +100,7 @@ function DefaultLayout({ children }) {
         {
             is: "header",
             icon: <IoMdListBox />,
-            title: 'List',
+            title: '',
         },
         {
             is: "menu",

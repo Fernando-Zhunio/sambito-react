@@ -65,59 +65,81 @@ const handleSubmit = async (e) => {
                     <form className="card-body " 
                     onSubmit={handleSubmit}>
                     <div className="row">
-                    <div className="mb-3">
+
+                    <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleDataList" className="form-label">Empresa</label>
+                                <input className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." list="datalistEmpresa" id="Empresa" />
+                                <datalist id="datalistEmpresa">
+                                    <option value="Maximedia" />
+                                    <option value="Genie" />                        
+                      </datalist>
+                    </div>
+
+                    <div className="mb-3 col-md-6 col-12">
+                                <label htmlFor="exampleDataList" className="form-label">Segmento</label>
+                                <input className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none" placeholder="Escriba..." list="datalistSegmento" id="Segmento" />
+                                <datalist id="datalistSegmento">
+                                    <option value="R2" />
+                                    <option value="R3" />                        
+                      </datalist>
+                    </div>
+
+                    <div className="mb-3  col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">RUC</label>
                       <input required onChange={handleChangeP} value={client.ruc} type="number" className="form-control" id="ruc" name="ruc"  />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputPassword1" className="form-label">Razón Social</label>
-                      <input required onChange={handleChangeP} value={client.razonSocial} type="text" className="form-control" id="razonSocial" name="razonSocial" />
+                      <input readOnly onChange={handleChangeP} value={client.razonSocial} type="text" className="form-control" id="razonSocial" name="razonSocial" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Nombre Comercial</label>
-                      <input required onChange={handleChangeP} type="text" value={client.nombreComercial} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.nombreComercial} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Dirección</label>
-                      <input required onChange={handleChangeP} type="text" value={client.direccion} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.direccion} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Pais</label>
-                      <input required onChange={handleChangeP} type="text" value={client.idPais} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.idPais} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Provincia</label>
-                      <input required onChange={handleChangeP} type="text" value={client.provincia} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.provincia} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Ciudad</label>
-                      <input required onChange={handleChangeP} type="text" value={client.ciudad} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.ciudad} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Dirección Factura</label>
-                      <input required onChange={handleChangeP} type="text" value={client.direccionFactura} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.direccionFactura} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Tipo Contribuyente</label>
-                      <input required onChange={handleChangeP} type="text" value={client.tipoContribuyente} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.tipoContribuyente} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Actividad Empresa</label>
-                      <input required onChange={handleChangeP} type="text" value={client.actividadEmpresa} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.actividadEmpresa} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Actividad Especifica</label>
-                      <input required onChange={handleChangeP} type="text" value={client.actividadEspecifica} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input readOnly onChange={handleChangeP} type="text" value={client.actividadEspecifica} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
+                    <hr />
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Teléfono</label>
-                      <input required onChange={handleChangeP} type="text" value={client.telefono} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
+                      <input  onChange={handleChangeP} type="text" value={client.telefono} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Fecha Facturación</label>
                       <input required onChange={handleChangeP} type="text" value={client.fechaFacturacion} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
-                    <div className="mb-3 col-md-6 col-12">
+                    <hr />
+                        <h2 className="fs-6">Persona Contacto</h2>
+                        <div className="mb-3 col-md-6 col-12">
                       <label htmlFor="exampleInputEmail1" className="form-label">Nombre Persona Contacto</label>
                       <input required onChange={handleChangeP} type="text" value={client.nombrePersonaContacto} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
@@ -133,34 +155,10 @@ const handleSubmit = async (e) => {
                       <label htmlFor="exampleInputEmail1" className="form-label">Mail Persona Contacto</label>
                       <input required onChange={handleChangeP} type="text" value={client.mailPersonaContacto} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
                     </div>
-                    <div className="mb-3 col-md-6 col-12">
-                      <label htmlFor="exampleInputEmail1" className="form-label">Código Activacion</label>
-                      <input required onChange={handleChangeP} type="text" value={client.codigoActivacion} className="form-control" id="nombreComercial" name='nombreComercial' aria-describedby="emailHelp" />
-                    </div>
 
-                      <div className="mb-3  col-md-6 col-12">
-                            <label htmlFor="exampleDataList" className="form-label">Segmentos</label>
-                            <input className="form-control" list="datalistRol" id="rol" name="rol" placeholder="Escriba algo" />
-                            <datalist id="datalistRol">
-                                <option value="Prima" />
-                                <option value="Servicio" />
-                            </datalist>
-                        </div>
-
-                      <div className="mb-3 col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Usuario</label>
-                        <input required onChange={handleChangeP} type="text" value={client.user} className="form-control" id="user" name="user"/>
-                      </div>
-
-                      <div className="mb-3  col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Clave</label>
-                        <input type="password" onChange={handleChangeP} value={client.password } className="form-control" id="password" name="password"/>
-                      </div> 
-                     
-                      <hr />
                     
-                      </div>
-                        
+                    
+                      </div>                        
                         <button 
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                           Guardar
