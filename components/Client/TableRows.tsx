@@ -2,7 +2,7 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
 import { useState } from "react";
-import { classNames } from 'classnames';
+//import { classNames } from 'classnames';
 function TableRows({ rowsData, deleteTableRows, handleChange }) {
     const [tags, setTags] = useState([])
 
@@ -44,26 +44,16 @@ function TableRows({ rowsData, deleteTableRows, handleChange }) {
                     </div>
                     <div className="mb-3  col-md-6 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Plazo de registro después del pago</label>
-<<<<<<< HEAD
                         <input type="number" value={FAC} onChange={(evnt)=>(handleChange(index, evnt))} id="FAC" name="FAC" className="form-control"/>
                     </div>
                     <div className="mb-3  col-md-6 col-12">  
-=======
-                        <input type="number" value={requisitos} onChange={(evnt) => (handleChange(index, evnt))} id="segmentos" name="segmentos" className="form-control" />
->>>>>>> e95782237b4653186cf89c4f60fe2ba414af4518
                     </div>
                     <div className="mb-3  col-md-6 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Plazo Ingreso de Información después del registro</label>
-<<<<<<< HEAD
                         <input type="number" value={cyei}  onChange={(evnt)=>(handleChange(index, evnt))} id="cyei" name="cyei" className="form-control"/>
                     </div>
                     <div className="mb-3  col-md-6 col-12"></div>
                     <div className="mb-3  col-md-6 col-12">   
-=======
-                        <input type="number" value={costo} onChange={(evnt) => (handleChange(index, evnt))} id="costo" name="costo" className="form-control" />
-                    </div>
-                    <div className="mb-3  col-md-6 col-12">
->>>>>>> e95782237b4653186cf89c4f60fe2ba414af4518
                         <label htmlFor="exampleInputPassword1" className="form-label">Plazo cierre Auditoría</label>
                         <input type="number" value={FDRegistro} onChange={(evnt) => (handleChange(index, evnt))} id="FDRegistro" name="FDRegistro" className="form-control" />
                     </div>
