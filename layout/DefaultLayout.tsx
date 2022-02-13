@@ -112,49 +112,43 @@ function DefaultLayout({ children }) {
                     to: '/auditable-requirements',
                 },
                 {
-                    is: "submenu",
-                    icon: <IoMdKeypad />,
-                    title: 'Requisitos Auditables',
-                    menu: [
-                        {
-                            is: "item",
-                            icon: <IoMdKeypad />,
-                            title: 'Crud',
-                            to: '/crud',
-                        }
-                    ]
-                }
-            ],
-        },
-        {
-            is: "header",
-            icon: <IoMdListBox />,
-            title: 'Requisitos',
-        },
-        {
-            is: "menu",
-            menu: [
-                {
                     is: "item",
                     icon: <IoMdKeypad />,
-                    title: 'Requisitos',
-                    to: '/auditable-requirements',
+                    title: 'Control Financiero',
+                    to: '/control-financiero',
                 },
-                {
-                    is: "submenu",
-                    icon: <IoMdKeypad />,
-                    title: 'Requisitos Auditables',
-                    menu: [
-                        {
-                            is: "item",
-                            icon: <IoMdKeypad />,
-                            title: 'Crud',
-                            to: '/crud',
-                        }
-                    ]
-                }
+                
             ],
-        }
+        },
+        // {
+        //     is: "header",
+        //     icon: <IoMdListBox />,
+        //     title: 'Requisitos',
+        // },
+        // {
+        //     is: "menu",
+        //     menu: [
+        //         {
+        //             is: "item",
+        //             icon: <IoMdKeypad />,
+        //             title: 'Requisitos',
+        //             to: '/auditable-requirements',
+        //         },
+        //         {
+        //             is: "submenu",
+        //             icon: <IoMdKeypad />,
+        //             title: 'Requisitos Auditables',
+        //             menu: [
+        //                 {
+        //                     is: "item",
+        //                     icon: <IoMdKeypad />,
+        //                     title: 'Crud',
+        //                     to: '/crud',
+        //                 }
+        //             ]
+        //         }
+        //     ],
+        // }
     ]
 
     const generateSidebar = () => {

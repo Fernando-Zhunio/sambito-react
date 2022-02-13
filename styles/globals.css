@@ -231,7 +231,10 @@ a {
 /* colores de botones */
 
 .btn-custom.btn-primary {
-  background-color: #a3cd45;
+  /* background-color: #a3cd45; */
+  background: linear-gradient(83deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.9867297260701156) 91%);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 20px;
   border-color: #a3cd45;
   color: #fff;
 }
@@ -241,9 +244,13 @@ a {
   color: #fff;
 }
 .btn-custom.btn-secondary {
-  background-color: #60ab84;
-  border-color: #60ab84;
+  /* background-color: #60ab84; */
+  /* border-color: #60ab84; */
+  background: rgb(163,205,69);
+background: linear-gradient(83deg, rgba(163,205,69,1) 13%, rgba(91,126,148,0.9867297260701156) 91%);
   color: #fff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 20px;
 }
 .btn-custom.btn-secondary:hover {
   background-color: #7cba6c;
@@ -252,8 +259,12 @@ a {
 }
 .btn-custom.btn-info {
   background-color: #5b7e94;
-  border-color: #5b7e94;
+  border-color: rgb(163,205,69);
   color: #fff;
+  /* background: rgb(163,205,69); */
+  background: linear-gradient(83deg, rgba(163,205,69,1) 13%, rgba(91,126,148,0.9867297260701156) 91%);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 20px;
 }
 .btn-custom.btn-info:hover {
   background-color: #7cba6c;
