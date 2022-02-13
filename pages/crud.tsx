@@ -1,9 +1,31 @@
 import DefaultLayout from "../layout/DefaultLayout";
 import styles from "../styles/crud.module.css";
 import { IoMdCreate, IoMdTrash } from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+
+// import {Editor}  from "react-draft-wysiwyg";
+const  Editor  = dynamic(
+    () => {
+        return import("react-draft-wysiwyg").then(mod => mod.Editor);
+    },
+    { ssr: false }
+) as any;
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 export default function crud() {
+    // let editorRef = useRef();
+    // const { Editor } = editorRef.current || {}; // if it don't find any document then it will be an empty object 
 
+    // let [loaded, setLoaded] = useState(false);
+    // useEffect(() => {
+    //     editorRef.current = {
+    //       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
+    //       ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
+    //     };
+
+    //     setLoaded(true);
+    //   }, []);
     return (
         <DefaultLayout>
             <div>
@@ -121,6 +143,13 @@ export default function crud() {
                         <button type="button" className="btn btn-primary btn-custom">Guardar</button>
                         <button type="button" className="btn btn-danger ms-2">Cancelar</button>
                     </form>
+                </div>
+
+                <h2>Texto enriquecido</h2>
+                <div>
+                    <Editor 
+                      editorClassName="editor-class"
+                    />
                 </div>
             </div>
 

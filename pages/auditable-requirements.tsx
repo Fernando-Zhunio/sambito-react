@@ -239,7 +239,7 @@ export default function auditableRequirements() {
                     <h1>Requisitos Auditables</h1>
                     <div className="mb-2">
                         <button className="btn btn-custom btn-primary mr-2" type="button" data-bs-toggle="modal" data-bs-target="#modalSection">Crear sección</button>
-                        <button className="btn btn-custom btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear requisito</button>
+                        <button className="btn btn-custom btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear requerimiento</button>
                     </div>
                     {/* <h3 className="fs-6">EL subtitulo va aquí</h3> */}
                 </div>

@@ -6,19 +6,17 @@
 @tailwind utilities;
 
 html,
-
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: #e4e5e6;
+  background-color: #e4e5e6;
 }
 
 :root {
   --bs-body-bg: #e4e5e6 !important;
 }
-
 
 a {
   color: inherit;
@@ -26,23 +24,23 @@ a {
 }
 @font-face {
   font-family: "metropolis-regular";
-  src: url("/metropolis/WOFF/Metropolis-Medium.woff") format('woff');
+  src: url("/metropolis/WOFF/Metropolis-Medium.woff") format("woff");
 }
 
 @font-face {
   font-family: "metropolis-ligth";
-  src: url("/metropolis/WOFF/metropolis-ligth.woff") format('woff');
+  src: url("/metropolis/WOFF/metropolis-ligth.woff") format("woff");
 }
 
 @font-face {
   font-family: "metropolis-regular";
-  src: url("/metropolis/WOFF/metropolis-regular.woff") format('woff');
+  src: url("/metropolis/WOFF/metropolis-regular.woff") format("woff");
 }
 
- * {
+* {
   font-family: "metropolis-regular";
   box-sizing: border-box;
- }
+}
 
 .text-green-550 {
   --tw-text-opacity: 1;
@@ -64,7 +62,6 @@ a {
   line-height: 2rem;
 }
 
-
 .mx-auto {
   margin-left: unset;
   margin-right: auto;
@@ -73,9 +70,8 @@ a {
   box-sizing: border-box;
 }
 
-
 .sidebar-container {
-  height: calc(100vh - 55px) ;
+  height: calc(100vh - 55px);
   position: fixed;
   left: 0;
   color: white;
@@ -83,47 +79,43 @@ a {
   transition: transform 0.5s ease-in-out;
 }
 
-
-
-
 .app {
   display: flex;
   position: relative;
   margin-left: 200px;
   background-color: #e4e5e6;
   transition: all 0.5s ease-in-out;
-
 }
 
 .c-primary {
-  color: #a3cd45
+  color: #a3cd45;
 }
 .b-primary {
-  background-color: #a3cd45
+  background-color: #a3cd45;
 }
 .c-secondary {
-  color: #60ab84
+  color: #60ab84;
 }
 .b-secondary {
-  background-color: #60ab84
+  background-color: #60ab84;
 }
 .c-tertiary {
-  color: #5b7e94
+  color: #5b7e94;
 }
 .b-tertiary {
-  background-color: #5b7e94
+  background-color: #5b7e94;
 }
 .c-quaternary {
-  color: #7fc466
+  color: #7fc466;
 }
 .b-quaternary {
-  background-color: #7fc466
+  background-color: #7fc466;
 }
 .c-quinary {
-  color: #7cba6c
+  color: #7cba6c;
 }
 .b-quinary {
-  background-color: #7cba6c
+  background-color: #7cba6c;
 }
 
 .sticky-top {
@@ -142,7 +134,7 @@ a {
   justify-content: space-between !important;
 }
 
-.navbar{
+.navbar {
   /* background-color: #7cba6c; */
   color: #fff;
   /* padding: 0.5rem 1rem; */
@@ -155,20 +147,23 @@ a {
 }
 
 .shadow-sm {
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .pro-sidebar > .pro-sidebar-inner {
   /* background-color: #60ab84 !important; */
-  background: rgb(96,171,132) !important;
-background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.9867297260701156) 91%) !important;
+  background: rgb(96, 171, 132) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(96, 171, 132, 1) 13%,
+    rgba(91, 126, 148, 0.9867297260701156) 91%
+  ) !important;
   color: white;
 }
 .dropdown-menu {
   border-radius: 20px !important;
   border: none !important;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .parpadeo {
@@ -177,21 +172,24 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
 
 @keyframes parpadeo {
   0% {
-      opacity: 1;
+    opacity: 1;
   }
   50% {
-      opacity: .5;
+    opacity: 0.5;
   }
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
-
 
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item {
   padding: 2px 35px 2px 20px !important;
 }
-.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+.pro-sidebar
+  .pro-menu.shaped
+  .pro-menu-item
+  > .pro-inner-item
+  > .pro-icon-wrapper {
   background-color: transparent !important;
 }
 
@@ -209,22 +207,20 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
 .pro-sidebar .pro-menu a {
   color: inherit !important;
 }
-.pro-inner-item{
+.pro-inner-item {
   padding: 5px 35px 5px 20px !important;
 }
 
-.header-dropdown .dropdown-item{
+.header-dropdown .dropdown-item {
   font-size: 0.8125rem;
 }
 
-.header-dropdown .dropdown-item svg{
+.header-dropdown .dropdown-item svg {
   margin-right: 0.25rem !important;
 }
-.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover{
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover {
   color: #5b7e94 !important;
 }
-
-
 
 @media (max-width: 600px) {
   .app {
@@ -233,7 +229,6 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
 }
 
 /* colores de botones */
-
 
 .btn-custom.btn-primary {
   background-color: #a3cd45;
@@ -266,8 +261,6 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
   color: #fff;
 }
 
-
-
 .hide-sidebar {
   transform: translateX(-200px);
   animation: all 0.5s ease-in-out;
@@ -293,27 +286,36 @@ background: linear-gradient(180deg, rgba(96,171,132,1) 13%, rgba(91,126,148,0.98
   left: -90px !important;
 }
 
-.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-item-content{
-  white-space: normal !important;; 
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-item-content {
+  white-space: normal !important;
 }
-  
-.input-default, .form-control {
+
+.input-default,
+.form-control {
   width: 100% !important;
   border-radius: 0.5rem !important;
   padding: 11px !important;
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000) !important;
   border: 1px solid var(--tw-drop-shadow, #0000) !important;
 }
 
 .react-tag-input {
   width: 100% !important;
   border-radius: 0.5rem !important;
-  padding: 8px  !important;
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+  padding: 8px !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000) !important;
   border: 1px solid var(--tw-drop-shadow, #0000) !important;
 }
 
-
-.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item{
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
   background-color: #7cba6c8a !important;
+}
+
+.editor-class {
+  background-color: #fff !important;
+  border: 1px solid #b3b1b1;
+  min-height: 200px;
+  padding: 0 10px;
 }
