@@ -115,7 +115,7 @@ const handleSubmit = async (e) => {
                           <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange}  />                       
                       </div>
                       <div className="mb-3">
-                      <button type="button"  className="btn btn-sm btn-primary btn-custom" onClick={() =>addTableRows()} >Agregar nuevo segmento  <IoIosAddCircleOutline className='ml-1' size={25} /></button>
+                      <button type="button"  className="btn btn-primary btn-custom center" onClick={() =>addTableRows()} >Agregar nuevo segmento  <IoIosAddCircleOutline className='ml-1' size={25} /></button>
                       </div>
                         
                         <button 
